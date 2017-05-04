@@ -45,7 +45,7 @@ z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 
 
 ### Install Dependencies
-* git clone https://github.com/zoobot/Zoobot
+* git clone https://github.com/zoobot/Zoobot.git
 * npm install
 
 ### Run the Server ##
