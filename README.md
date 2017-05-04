@@ -1,5 +1,7 @@
-# Zoobot#
-## This code was used in a demo for an internet of robots talk for Women Who Code Connect 2017 conference ##
+# Zoobot
+## Internet of Robots Demo
+## Women Who Code Connect 2017
+## #WeRise
 
 # Hardware
 Raspberry Pi, micro SD card, monitor, keyboard, mouse, wifi adapter if you use earlier than Raspberry Pi3, usb cable
@@ -8,18 +10,15 @@ Motor shield supported by Johnny-five
 Power supply or separate battery for logic and motors
 
 # Software
-Raspbian
-Node.js
-Express
-Johnny-five
-Socket.io
+Raspbian, Node.js, Express, Johnny-five, Socket.io, Ngrok
 
 # Links
 * Node.js: https://nodejs.org/en/
 * Socket.io: http://socket.io/get-started/chat/
-* Johnny-Five http://johnny-five.io/
-* https://www.raspberrypi.org/
+* Johnny-Five: http://johnny-five.io/
+* Raspberry Pi: https://www.raspberrypi.org/
 * Arduino https://www.arduino.cc/
+* Ngrok: https://ngrok.com/
 * Motion Sensor: http://www.jameco.com/
 z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 
@@ -35,25 +34,23 @@ z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 * Connect to Wifi
 * Enable SSH
 * Install VNC - Chicken of the VNC or TightVNC
+* ssh or vnc to Raspberry Pi
 
-# ssh to Raspberry Pi
-
-###  Electronics ##
+### Electronics ##
 * Connect the Arduino to Raspberry Pi via USB
 * Connect motor controller
 * Connect motors to motor controller and power
 * Connect LED positive to Arduino port 13
 * Connect Motion Sensor positive to Arduino port 3
 
-ssh to Raspberry Pi
 
-###  Install Dependencies
+### Install Dependencies
 * git clone https://github.com/zoobot/Zoobot
 * npm install
 
-###  Run the Server ##
+### Run the Server ##
 * node server-all.js
-* Open a browser on http://localhost:3000
+* Open a browser on http://localhost:3000 or use Ngrok for external access
 
-# Slides with more depth
-https://docs.google.com/presentation/d/1rDXaXQzcvEyW1z1uiZOrreTGZcfMhRk8_wiKOiknt8U/edit?usp=sharing
+### Slides with more depth
+* https://docs.google.com/presentation/d/1rDXaXQzcvEyW1z1uiZOrreTGZcfMhRk8_wiKOiknt8U/edit?usp=sharing
