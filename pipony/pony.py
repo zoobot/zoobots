@@ -16,7 +16,7 @@ Motor1Enable = 5
 GPIO.setup(Motor1A,GPIO.OUT)
 GPIO.setup(Motor1B,GPIO.OUT)
 GPIO.setup(Motor1Enable,GPIO.OUT)
-We then tell the code to turn certain pins on or off to make the motor move:
+#We then tell the code to turn certain pins on or off to make the motor move:
 # Turn the motor on
 GPIO.output(Motor1A,GPIO.HIGH) # GPIO high to send power to the + terminal
 GPIO.output(Motor1B,GPIO.LOW) # GPIO low to ground the - terminal

@@ -44,6 +44,9 @@ sudo dd if=~/Desktop/raspberrypi.dmg of=/dev/disk2
 * Connect Raspberry Pi Zero to MotoZero
 
 ### Install Dependencies
+pip install Flask
+pip install python-socketio
+pip install eventlet
 * git clone https://github.com/zoobot/Zoobot.git
 
 ### Run the Server ##
