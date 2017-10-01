@@ -1,4 +1,7 @@
-var socket = io();
+// var socket = io();
+var url = window.location.protocol + document.domain + ':' + location.port,
+        socket = io.connect(url);
+
 $('form').submit(function() {
   socket.emit('chat message', $('#m').val());
   $('#m').val('');
@@ -61,6 +64,9 @@ $(".robot button").click(function(e) {
   }
   if (e.currentTarget.className === 'robot-stop') {
     socket.emit('robot-stop');
+  }
+  if (e.currentTarget.className === 'disconnect') {
+    socket.emit('disconnect');
   }
   return false;
 });
