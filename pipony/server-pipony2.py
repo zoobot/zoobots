@@ -46,7 +46,7 @@ def disconnect(sid):
     GPIO.cleanup()
     print('disconnect ', sid)
 
-def setup():
+def main():
     GPIO.setmode(GPIO.BCM)
     # Define GPIO pins
     Motor1A = 27
@@ -57,16 +57,17 @@ def setup():
     GPIO.setup(Motor1Enable,GPIO.OUT)
 
 if __name__ == '__main__':
-    setup()
-    # wrap Flask application with engineio's middleware
-    app = socketio.Middleware(sio, app)
 
-    # deploy as an eventlet WSGI server
-    eventlet.wsgi.server(eventlet.listen(('', 8000)), app)
 
-try:
-    main()
-except KeyboardInterrupt:
-    pass
-finally:
-    GPIO.cleanup()
+
+    try:
+        main()
+        # wrap Flask application with engineio's middleware
+        app = socketio.Middleware(sio, app)
+
+        # deploy as an eventlet WSGI server
+        eventlet.wsgi.server(eventlet.listen(('', 8000)), app)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        GPIO.cleanup()
