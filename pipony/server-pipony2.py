@@ -28,23 +28,33 @@ def message(sid, data):
     print("message ", data)
     sio.emit('reply', room=sid)
 
-# @sio.on('connect', namespace='/chat')
 @sio.on('robot-forward')
-def connect(sid):
-    print("forward ", sid)
-    sio.emit('reply', room=sid)
+def message(sid):
+    # Turn the motor on
+    GPIO.output(Motor1A,GPIO.HIGH) # GPIO high to send power to the + terminal
+    GPIO.output(Motor1B,GPIO.LOW) # GPIO low to ground the - terminal
+    GPIO.output(Motor1Enable,GPIO.HIGH) # GPIO high to enable this motor
+    print('message ', sid)
 
 @sio.on('robot-back')
-def connect(sid):
-    print("back ", sid)
+def message(sid):
+    GPIO.output(Motor1A,GPIO.LOW) # GPIO high to send power to the + terminal
+    GPIO.output(Motor1B,GPIO.HIGH) # GPIO low to ground the - terminal
+    GPIO.output(Motor1Enable,GPIO.HIGH) # GPIO high to enable this motor
+    print('message ', sid)
 
 @sio.on('robot-stop')
-def connect(sid):
-    print("stop ", sid)
+def message(sid):
+    # Stop the motor by 'turning off' the enable GPIO pin
+    GPIO.output(Motor1Enable,GPIO.LOW)
+    print('message ', sid)
+
 
 @sio.on('disconnect')
-def connect(sid):
-    print("disconnect ", sid)
+def disconnect(sid):
+    # Always end this script by cleaning the GPIO
+    GPIO.cleanup()
+    print('disconnect ', sid)
 
 
 
