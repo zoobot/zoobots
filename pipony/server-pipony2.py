@@ -6,14 +6,16 @@ import RPi.GPIO as GPIO
 from time import sleep
 from flask import Flask, request, send_from_directory
 
-GPIO.setmode(GPIO.BCM)
-# Define GPIO pins
-Motor1A = 27
-Motor1B = 24
-Motor1Enable = 5
-GPIO.setup(Motor1A,GPIO.OUT)
-GPIO.setup(Motor1B,GPIO.OUT)
-GPIO.setup(Motor1Enable,GPIO.OUT)
+# Sets up pins as outputs
+def setup():
+    GPIO.setmode(GPIO.BCM)
+    # Define GPIO pins
+    Motor1A = 27
+    Motor1B = 24
+    Motor1Enable = 5
+    GPIO.setup(Motor1A,GPIO.OUT)
+    GPIO.setup(Motor1B,GPIO.OUT)
+    GPIO.setup(Motor1Enable,GPIO.OUT)
 
 sio = socketio.Server()
 app = Flask(__name__)
@@ -54,18 +56,26 @@ def disconnect(sid):
     GPIO.cleanup()
     print('disconnect ', sid)
 
+
+
 try:
     main()
 except KeyboardInterrupt:
     pass
 finally:
-    print('cleanup')
     GPIO.cleanup()
 
 
 if __name__ == '__main__':
+    setup()
     # wrap Flask application with engineio's middleware
     app = socketio.Middleware(sio, app)
 
     # deploy as an eventlet WSGI server
     eventlet.wsgi.server(eventlet.listen(('', 8000)), app)
+
+    try:
+      print('in try')
+    # Stop on Ctrl+C and clean up
+    except KeyboardInterrupt:
+        GPIO.cleanup()
