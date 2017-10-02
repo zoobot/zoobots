@@ -2,31 +2,30 @@ import socketio
 import eventlet
 import eventlet.wsgi
 import RPi.GPIO as GPIO
+
 from time import sleep
 from flask import Flask, request, send_from_directory
+
+GPIO.setmode(GPIO.BCM)
+# Define GPIO pins
+Motor1A = 27
+Motor1B = 24
+Motor1Enable = 5
+GPIO.setup(Motor1A,GPIO.OUT)
+GPIO.setup(Motor1B,GPIO.OUT)
+GPIO.setup(Motor1Enable,GPIO.OUT)
 
 sio = socketio.Server()
 app = Flask(__name__)
 
 @app.route('/<path:path>', methods=['POST', 'GET'])
 def serve_page(path):
-  # return index for get
   return send_from_directory('static', path)
 
 @sio.on('connect')
 def connect(sid, data):
-    GPIO.setmode(GPIO.BCM)
-
-    # Define GPIO pins
-    Motor1A = 27
-    Motor1B = 24
-    Motor1Enable = 5
-
-    GPIO.setup(Motor1A,GPIO.OUT)
-    GPIO.setup(Motor1B,GPIO.OUT)
-    GPIO.setup(Motor1Enable,GPIO.OUT)
-    print("message ", data)
-    sio.emit('reply', room=sid)
+    print("connected ", data, sid)
+    sio.emit('room', room=sid)
 
 @sio.on('robot-forward')
 def message(sid):
