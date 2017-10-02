@@ -2,13 +2,23 @@ import socketio
 import eventlet
 import eventlet.wsgi
 import RPi.GPIO as GPIO
-
 from time import sleep
 from flask import Flask, request, send_from_directory
-
-
 sio = socketio.Server()
 app = Flask(__name__)
+
+GPIO.setmode(GPIO.BCM)
+    # Define GPIO pins
+Motor1A = 27
+Motor1B = 24
+Motor1Enable = 5
+GPIO.setup(Motor1A,GPIO.OUT)
+GPIO.setup(Motor1B,GPIO.OUT)
+GPIO.setup(Motor1Enable,GPIO.OUT)
+
+
+
+
 
 @app.route('/<path:path>', methods=['POST', 'GET'])
 def serve_page(path):
@@ -47,26 +57,17 @@ def disconnect(sid):
     print('disconnect ', sid)
 
 def main():
-    GPIO.setmode(GPIO.BCM)
-    # Define GPIO pins
-    Motor1A = 27
-    Motor1B = 24
-    Motor1Enable = 5
-    GPIO.setup(Motor1A,GPIO.OUT)
-    GPIO.setup(Motor1B,GPIO.OUT)
-    GPIO.setup(Motor1Enable,GPIO.OUT)
+    # wrap Flask application with engineio's middleware
+    app = socketio.Middleware(sio, app)
+
+    # deploy as an eventlet WSGI server
+    eventlet.wsgi.server(eventlet.listen(('', 8000)), app)
 
 if __name__ == '__main__':
 
-
-
     try:
         main()
-        # wrap Flask application with engineio's middleware
-        app = socketio.Middleware(sio, app)
 
-        # deploy as an eventlet WSGI server
-        eventlet.wsgi.server(eventlet.listen(('', 8000)), app)
     except KeyboardInterrupt:
         pass
     finally:
