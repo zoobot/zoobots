@@ -14,7 +14,7 @@ def serve_page(path):
   return send_from_directory('static', path)
 
 @sio.on('connect')
-def message(sid, data):
+def connect(sid, data):
     GPIO.setmode(GPIO.BCM)
 
     # Define GPIO pins
@@ -52,7 +52,6 @@ def message(sid):
 
 @sio.on('disconnect')
 def disconnect(sid):
-    # Always end this script by cleaning the GPIO
     GPIO.cleanup()
     print('disconnect ', sid)
 
