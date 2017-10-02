@@ -54,7 +54,13 @@ def disconnect(sid):
     GPIO.cleanup()
     print('disconnect ', sid)
 
-
+try:
+    main()
+except KeyboardInterrupt:
+    pass
+finally:
+    print('cleanup')
+    GPIO.cleanup()
 
 
 if __name__ == '__main__':
