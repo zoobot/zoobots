@@ -57,17 +57,16 @@ def disconnect(sid):
     print('disconnect ', sid)
 
 def main():
+    print('main')
+
+if __name__ == '__main__':
     # wrap Flask application with engineio's middleware
     app = socketio.Middleware(sio, app)
 
     # deploy as an eventlet WSGI server
     eventlet.wsgi.server(eventlet.listen(('', 8000)), app)
-
-if __name__ == '__main__':
-
     try:
         main()
-
     except KeyboardInterrupt:
         pass
     finally:
