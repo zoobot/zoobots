@@ -5,23 +5,23 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 sio = SocketIO(app)
 
-@socketio.on('robot-back')
+@sio.on('robot-back')
 def handle_message(message):
     print('received message: ' + message)
 
-@socketio.on('robot-forward')
+@sio.on('robot-forward')
 def handle_json(json):
     print('robot-forward: ' + str(json))
 
-@socketio.on('robot-right')
+@sio.on('robot-right')
 def handle_message(message):
     send(message)
 
-@socketio.on('robot-stop')
+@sio.on('robot-stop')
 def handle_json(json):
     send(json, json=True)
 
-@socketio.on('room')
+@sio.on('room')
 def handle_my_custom_event(json):
     emit('room', json)
 
