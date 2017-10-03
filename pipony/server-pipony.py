@@ -34,6 +34,7 @@ def message(sid):
     motor1.value = 1 # half speed forwards
     motor4.value = 1 # half speed forwards
     print('message ', sid)
+    sio.emit('pipony moved', sid)
 
 @sio.on('robot-back')
 def message(sid):
