@@ -84,7 +84,7 @@ board.on("ready", function() {
       console.log('robot-left', count++);
       motor1.forward(150);
       motor3.reverse(255);
-      io.emit('robot', count + ' left.');
+      io.emit('robot', 'horse left.');
     });
     socket.on('robot-right', function(data) {
       console.log('robot-right', count++);
@@ -96,7 +96,7 @@ board.on("ready", function() {
       led.on(1000);
       motor1.forward(255);
       motor3.forward(255);
-      console.log('robot-forward', count++);
+      console.log('horse-forward', count++);
       io.emit('robot', 'horse forward.');
     });
     socket.on('robot-back', function(data) {
