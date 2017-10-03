@@ -14,32 +14,32 @@ board.on("ready", function() {
   var led = new five.Led(13);
   var motion = new five.Motion(3);
 
-  // Adafruit Shield
-  // var configs = five.Motor.SHIELD_CONFIGS.ADAFRUIT_V2;
+  Adafruit Shield
+  var configs = five.Motor.SHIELD_CONFIGS.ADAFRUIT_V2;
 
-  // var motor1 = new five.Motor(configs.M1);
-  // var motor2 = new five.Motor(configs.M2);
-  // var motor3 = new five.Motor(configs.M3);
-  // var motor4 = new five.Motor(configs.M4);
+  var motor1 = new five.Motor(configs.M1);
+  var motor2 = new five.Motor(configs.M2);
+  var motor3 = new five.Motor(configs.M3);
+  var motor4 = new five.Motor(configs.M4);
 
   // Pololu VNH5019 motor shield
-    var motor1 = new five.Motor({
-      pins: {
-        pwm: 9,
-        dir: 2,
-        cdir: 4,
-        enable: 6
-      }
-    });
+    // var motor1 = new five.Motor({
+    //   pins: {
+    //     pwm: 9,
+    //     dir: 2,
+    //     cdir: 4,
+    //     enable: 6
+    //   }
+    // });
 
-    var motor3 = new five.Motor({
-      pins: {
-        pwm: 10,
-        dir: 7,
-        cdir: 8,
-        enable: 12
-      }
-    });
+    // var motor3 = new five.Motor({
+    //   pins: {
+    //     pwm: 10,
+    //     dir: 7,
+    //     cdir: 8,
+    //     enable: 12
+    //   }
+    // });
 
   motion.on("calibrated", function() {
     console.log("calibrated");
