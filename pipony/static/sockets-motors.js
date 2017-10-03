@@ -9,10 +9,8 @@
 // console.log('socket',socket)
 
 var socket = io();
-socket.on('room', function(msg) {
-  console.log('room ', msg)
-  }
-)
+socket.on('room', msg => console.log('room ', msg))
+socket.on('pipony moved', msg => console.log('pipony moved ', msg))
 
 
 $(".pipony2 button").click(function(e) {
