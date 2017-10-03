@@ -1,10 +1,9 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
-import flask.ext.socketio
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-sio = flask.ext.socketio.SocketIO(app)
+sio = SocketIO(app)
 
 @sio.on('robot-back')
 def handle_message(message):
