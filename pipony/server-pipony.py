@@ -31,14 +31,14 @@ def connect(sid, data):
 @sio.on('robot-forward')
 def message(sid):
     # Turn the motor on
-    motor1.value = 0.5 # half speed forwards
-    motor4.value = 0.5 # half speed forwards
+    motor1.value = 1 # half speed forwards
+    motor4.value = 1 # half speed forwards
     print('message ', sid)
 
 @sio.on('robot-back')
 def message(sid):
-    motor1.value = -0.5 # half speed backwards
-    motor4.value = -0.5 # half speed backwards
+    motor1.value = -1 # half speed backwards
+    motor4.value = -1 # half speed backwards
     print('message ', sid)
 
 @sio.on('robot-stop')
@@ -52,13 +52,13 @@ def message(sid):
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
     motor1.value = 1 # right
-    motor4.value = 0.25 # right
+    motor4.value = 0.5 # right
     print('message ', sid)
 
 @sio.on('robot-left')
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
-    motor1.value = .25 # left
+    motor1.value = .5 # left
     motor4.value = 1 # left
     print('message ', sid)
 
