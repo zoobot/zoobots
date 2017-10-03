@@ -1,12 +1,12 @@
-'use strict'
-const express = require('express');
-const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-const five = require("johnny-five");
+//'use strict'
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var five = require("johnny-five");
 
-let board = new five.Board();
-let myMotion = false;
+var board = new five.Board();
+var myMotion = false;
 
 
 board.on("ready", function() {
