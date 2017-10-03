@@ -1,9 +1,10 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
+import flask.ext.socketio
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-sio = SocketIO(app)
+sio = flask.ext.socketio.SocketIO(app)
 
 @sio.on('robot-back')
 def handle_message(message):
@@ -26,4 +27,4 @@ def handle_my_custom_event(json):
     emit('room', json)
 
 if __name__ == '__main__':
-    sio.run(app, host=127.0.0.1, port=8000)
+    sio.run(app, host=0.0.0.0, port=8000)
