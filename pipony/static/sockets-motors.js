@@ -1,54 +1,26 @@
 // var socket = io();
-var url = window.location.protocol + document.domain + ':' + location.port,
-        socket = io.connect(url);
+// var url = window.location.protocol + ' ' +document.domain + ' : ' + location.port;
+// var url = window.location.protocol +document.domain + ':' + location.port;
+// const url = `http://${window.location.hostname}:${location.port}`;
+// const url = `${window.location.protocol}${window.location.hostname}:${location.port}`;
+// var url = 'http://192.168.55.102:8000'
+// console.log('url pipony2',url)
+// var socket = io.connect(url);
+// console.log('socket',socket)
 
-$('form').submit(function() {
-  socket.emit('chat message', $('#m').val());
-  $('#m').val('');
-  return false;
-});
-
-socket.on('chat message', function(msg) {
-  if (msg === 'off') {
-    socket.emit('led:off');
-    console.log('LED OFF');
+var socket = io();
+socket.on('room', function(msg) {
+  console.log('room ', msg)
   }
-  if (msg === 'on') {
-    socket.emit('led:on');
-    console.log('LED ON');
-  }
-  if (msg === 'blink') {
-    socket.emit('led:blink');
-    console.log('LED blink');
-  }
-  $('#messages').prepend($('<li>').text(msg));
-});
-
-$(".led button").click(function(e) {
-  if (e.currentTarget.className === 'led-off') {
-    socket.emit('led:off');
-  }
-  if (e.currentTarget.className === 'led-on') {
-    socket.emit('led:on');
-  }
-  if (e.currentTarget.className === 'led-blink') {
-    socket.emit('led:blink');
-  }
-  return false;
-});
-
-socket.on('motionstart', function(data) {
-  if (data === true) {
-    socket.emit('robot coming');
-    console.log('robot coming');
-  }
-  $('#messages').prepend($('<li>').text(data));
-});
+)
 
 
-var count = 0;
+$(".pipony2 button").click(function(e) {
+  var url = 'http://192.168.55.102:8000'
+  console.log('url pipony1',url)
+  var socket = io.connect(url);
+  console.log('socket',socket)
 
-$(".robot button").click(function(e) {
   console.log(e.currentTarget.className)
   if (e.currentTarget.className === 'robot-left') {
     socket.emit('robot-left');
@@ -71,10 +43,59 @@ $(".robot button").click(function(e) {
   return false;
 });
 
+$(".pipony6 button").click(function(e) {
+  var url = 'http://192.168.55.106:8000'
+  console.log('url pipony6',url)
+  var socket = io.connect(url);
+  console.log('socket',socket)
 
-socket.on('robot', function(data) {
-  $('#messages').prepend($('<li>').text(data));
+  console.log(e.currentTarget.className)
+  if (e.currentTarget.className === 'robot-left') {
+    socket.emit('robot-left');
+  }
+  if (e.currentTarget.className === 'robot-right') {
+    socket.emit('robot-right');
+  }
+  if (e.currentTarget.className === 'robot-forward') {
+    socket.emit('robot-forward');
+  }
+  if (e.currentTarget.className === 'robot-back') {
+    socket.emit('robot-back');
+  }
+  if (e.currentTarget.className === 'robot-stop') {
+    socket.emit('robot-stop');
+  }
+  if (e.currentTarget.className === 'disconnect') {
+    socket.emit('disconnect');
+  }
+  return false;
 });
-socket.on('led', function(data) {
-  $('#messages').prepend($('<li>').text(data));
+
+$(".pipony1 button").click(function(e) {
+  var url = 'http://192.168.55.101:8000'
+  console.log('url pipony3',url)
+  var socket = io.connect(url);
+  console.log('socket',socket)
+
+  console.log(e.currentTarget.className)
+  if (e.currentTarget.className === 'robot-left') {
+    socket.emit('robot-left');
+  }
+  if (e.currentTarget.className === 'robot-right') {
+    socket.emit('robot-right');
+  }
+  if (e.currentTarget.className === 'robot-forward') {
+    socket.emit('robot-forward');
+  }
+  if (e.currentTarget.className === 'robot-back') {
+    socket.emit('robot-back');
+  }
+  if (e.currentTarget.className === 'robot-stop') {
+    socket.emit('robot-stop');
+  }
+  if (e.currentTarget.className === 'disconnect') {
+    socket.emit('disconnect');
+  }
+  return false;
 });
+
