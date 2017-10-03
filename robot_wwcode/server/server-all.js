@@ -81,13 +81,13 @@ board.on("ready", function() {
 
     //motor driver
     socket.on('robot-left', function(data) {
-      console.log('robot-left', count++);
+      console.log('horse-left', count++);
       motor1.forward(150);
       motor3.reverse(255);
       io.emit('robot', 'horse left.');
     });
     socket.on('robot-right', function(data) {
-      console.log('robot-right', count++);
+      console.log('horse-right', count++);
       motor1.reverse(150);
       motor3.forward(255);
       io.emit('robot', 'horse right.');
@@ -103,13 +103,13 @@ board.on("ready", function() {
       led.blink(1000);
       motor1.reverse(255);
       motor3.reverse(255);
-      console.log('robot-back', data, count++);
+      console.log('horse-back', count++);
       io.emit('robot', 'horse back.');
     });
     socket.on('robot-stop', function(data) {
       motor1.stop();
       motor3.stop();
-      console.log('robot-stop', data, count++);
+      console.log('horse-stop', count++);
       io.emit('robot', 'horse stop.');
     });
   });
