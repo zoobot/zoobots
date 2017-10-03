@@ -26,4 +26,4 @@ def handle_my_custom_event(json):
     emit('room', json)
 
 if __name__ == '__main__':
-    sio.run(app, host=None, port=8000)
+    sio.run(app, host=192.168.55.101, port=8000)
