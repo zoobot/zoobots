@@ -59,7 +59,8 @@ board.on("ready", function() {
     console.log("motionend");
   });
   var count = 0;
-  io.on('connection', function(socket) {
+  io.on('connect', function(socket) {
+    console.log('connected', socket)
     socket.on('chat message', function(msg) {
       io.emit('chat message', msg);
     });
@@ -89,27 +90,27 @@ board.on("ready", function() {
       console.log('robot-right', count++);
       motor1.reverse(150);
       motor3.forward(255);
-      io.emit('robot', count + ' right.');
+      io.emit('robot', 'horse right.');
     });
     socket.on('robot-forward', function(data) {
       led.on(1000);
       motor1.forward(255);
       motor3.forward(255);
       console.log('robot-forward', count++);
-      io.emit('robot', count + ' forward.');
+      io.emit('robot', 'horse forward.');
     });
     socket.on('robot-back', function(data) {
       led.blink(1000);
       motor1.reverse(255);
       motor3.reverse(255);
       console.log('robot-back', data, count++);
-      io.emit('robot', count + ' back.');
+      io.emit('robot', 'horse back.');
     });
     socket.on('robot-stop', function(data) {
       motor1.stop();
       motor3.stop();
       console.log('robot-stop', data, count++);
-      io.emit('robot', count + ' stop.');
+      io.emit('robot', 'horse stop.');
     });
   });
 });
