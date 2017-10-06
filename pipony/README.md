@@ -9,7 +9,7 @@ Motor shield supported by Johnny-five
 Power supply or separate battery for logic and motors
 
 # Software
-Raspbian, Flast, Socket.io, Ngrok
+Raspbian, Flask, Socket.io, Ngrok
 
 # Links
 * Node.js: https://nodejs.org/en/
@@ -19,9 +19,6 @@ Raspbian, Flast, Socket.io, Ngrok
 * Motion Sensor: http://www.jameco.com/
 z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 
-# Nginx
-* To restart nginx and kill all older PIDs
-* sudo kill $(ps aux | grep nginx | awk '{print $2}');sudo nginx -c /Users/username/Desktop/ROBOTS/internet_of_robots/zoobot/pipony/nginx.conf
 
 # Installing Raspbian OS using Etcher
 * Connect the SD card reader with the SD card inside. Format as FAT32.
@@ -33,17 +30,6 @@ z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 * Insert SD into Raspberry Pi
 * Boot!
 * Connect to Wifi
-
-sudo raspi-config
-* change password
-* hostname
-* Interfacing Options
-* Enable Camera
-* Enable SSH
-* Enable VNC
-* ssh or vnc to Raspberry Pi
-
-
 
 ### to clone microsd on osx
 diskutil list
@@ -57,9 +43,22 @@ clone from desktop
 https://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911
 https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1261113524
 
+
+# TODO on Raspberry Pi
+* Open Terminal and type sudo raspi-config
+* change password
+* hostname
+* Interfacing Options
+* Enable Camera
+* Enable SSH
+* Enable VNC
+* ssh or vnc to Raspberry Pi
+
 ### Electronics ##
 * Solder all parts
 * Connect Raspberry Pi Zero to MotoZero
+* Connect Motors to MotoZero
+* Connect 5V to Pi and InfinityV to Motors
 
 ### Install Dependencies
 * pip install Flask
@@ -67,12 +66,26 @@ https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1
 * pip install eventlet
 * git clone https://github.com/zoobot/zoobot.git
 
-### Run the Flask Server ##
+### RUN Nginx on localhost FIRST!!
+* git clone https://github.com/zoobot/zoobot.git
+* cd zoobot
+* change upstream ip addresses to match robots on nginx.conf line 15
+* change ip addresses to match robots on nginx.conf line 15
+* change ip addresses in static/sockets-motors.js also make this code better
+* sudo nginx -c /Users/username/fullpath/zoobot/pipony/nginx.conf
+#### or To restart nginx and kill all older PIDs
+* sudo kill $(ps aux | grep nginx | awk '{print $2}');sudo nginx -c /Users/username/Desktop/ROBOTS/internet_of_robots/zoobot/pipony/nginx.conf
+
+### SSH to your Pi Robot
+* ssh pi@ip
+* git clone https://github.com/zoobot/zoobot.git
+##  install dependencies
+* sudo pip install Flask python-socketio eventlet for Flask or npm install for node
+## Run the Flask Server or Node server depending on which robot##
 * python server-pipony.py
+* node server/server-all.js
 
-
-
-#notes for osx file limit error
+### notes for osx file limit error
 *ulimit -a
 *ulimit -n 10000
 *sudo launchctl limit maxfiles 100000 unlimited
