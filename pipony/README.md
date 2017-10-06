@@ -20,7 +20,7 @@ Raspbian, Flask, Socket.io, Ngrok
 z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 
 
-# Installing Raspbian OS using Etcher
+## Installing Raspbian OS using Etcher
 * Connect the SD card reader with the SD card inside. Format as FAT32.
 * Download and install Etcher
 * Open Etcher.app
@@ -31,8 +31,8 @@ z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 * Boot!
 * Connect to Wifi
 
-### to clone microsd on osx
-diskutil list
+## to clone microsd on osx
+* diskutil list
 * diskutil unmountDisk /dev/disk2
 clone to desktop
 * sudo dd if=/dev/disk2 of=~/Desktop/raspberrypi.dmg
@@ -44,7 +44,7 @@ https://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using
 https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1261113524
 
 
-# TODO on Raspberry Pi
+## TODO on Raspberry Pi
 * Open Terminal and type sudo raspi-config
 * change password
 * hostname
@@ -54,19 +54,13 @@ https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1
 * Enable VNC
 * ssh or vnc to Raspberry Pi
 
-### Electronics ##
+## Electronics ##
 * Solder all parts
 * Connect Raspberry Pi Zero to MotoZero
 * Connect Motors to MotoZero
 * Connect 5V to Pi and InfinityV to Motors
 
-### Install Dependencies
-* pip install Flask
-* pip install python-socketio
-* pip install eventlet
-* git clone https://github.com/zoobot/zoobot.git
-
-### RUN Nginx on localhost FIRST!!
+## RUN Nginx on localhost FIRST!!
 * git clone https://github.com/zoobot/zoobot.git
 * cd zoobot
 * change upstream ip addresses to match robots on nginx.conf line 15
@@ -76,7 +70,7 @@ https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1
 #### or To restart nginx and kill all older PIDs
 * sudo kill $(ps aux | grep nginx | awk '{print $2}');sudo nginx -c /Users/username/Desktop/ROBOTS/internet_of_robots/zoobot/pipony/nginx.conf
 
-### SSH to your Pi Robot
+## SSH to your Pi Robot
 * ssh pi@ip
 * git clone https://github.com/zoobot/zoobot.git
 ##  install dependencies
