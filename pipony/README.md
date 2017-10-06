@@ -12,11 +12,16 @@ Power supply or separate battery for logic and motors
 Raspbian, Flask, Socket.io, Ngrok
 
 # Links
+* Flask: https://pypi.python.org/pypi/Flask
+* Nginx: https://www.nginx.com/resources/admin-guide/load-balancer/
 * Node.js: https://nodejs.org/en/
 * Socket.io: http://python-socketio.readthedocs.io/en/latest/
 * Raspberry Pi: https://www.raspberrypi.org/
 * Ngrok: https://ngrok.com/
 * Motion Sensor: http://www.jameco.com/z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
+* Arduino: https://www.arduino.cc/
+* Adafruit motor driver: https://www.adafruit.com/product/1438
+* MotoZero motor driver: https://thepihut.com/products/motozero
 
 
 ## Installing Raspbian OS using Etcher
