@@ -1,6 +1,7 @@
 # Zoobot
 ## Internet of Robots Demo
-## Hardware Developer's Didactic Galactic (HDDG)
+### Hardware Developer's Didactic Galactic Meetup San Francisco (HDDG)
+### Haackaday Super Conference 2017 Los Angelos
 
 # Hardware
 Raspberry Pi Zero, MotoZero, monitor, keyboard, mouse, wifi adapter if you use earlier than Raspberry Pi3, usb cable
