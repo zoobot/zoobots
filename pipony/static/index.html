@@ -3,10 +3,10 @@
 
 <head>
   <title>Internet of Robots</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/static/style.css">
     <!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
     <script type="text/javascript" src="resources/js/socket.io.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="resources/js/jquery-1.11.1.js"></script>
 </head>
 
 <body>
@@ -16,23 +16,36 @@
   </header>
   <div class="container">
     <div class="left">
-      <div class="robot">
-        <div class="title">BINB Controls</div>
-        <button class="robot-left">LEFT</button>
-        <button class="robot-right">RIGHT</button>
-        <button class="robot-forward">FORWARD</button>
-        <button class="robot-back">BACK</button>
-        <button class="robot-stop">STOP</button>
-        <button class="robot-disconnect">DISCONNECT</button>
+      <div  id="horse" class="horse">
+        <div class="title">horse</div>
+        <button id="robot-left" class="robot-left">LEFT</button>
+        <button id="robot-right" class="robot-right">RIGHT</button>
+        <button id="robot-forward" class="robot-forward">FORWARD</button>
+        <button id="robot-back" class="robot-back">BACK</button>
+        <button id="robot-stop" class="robot-stop">STOP</button>
+        <button id="robot-disconnect" class="robot-disconnect">DISCONNECT</button>
       </div>
-      <div><br></div>
-      <div class="led">
-        <div class="title">LED Controls</div>
-        <button class="led-off">LED OFF</button>
-        <button class="led-on">LED ON</button>
-        <button class="led-blink">LED BLINK</button>
+      <div id="pipony2" class="pipony2">
+        <div class="title">pipony2</div>
+        <button id="robot-left" class="robot-left">LEFT</button>
+        <button id="robot-right" class="robot-right">RIGHT</button>
+        <button id="robot-forward" class="robot-forward">FORWARD</button>
+        <button id="robot-back" class="robot-back">BACK</button>
+        <button id="robot-stop" class="robot-stop">STOP</button>
+        <button id="robot-disconnect" class="robot-disconnect">DISCONNECT</button>
       </div>
+      <div id="pipony6" class="pipony6">
+        <div class="title">pipony6</div>
+        <button id="robot-left" class="robot-left">LEFT</button>
+        <button id="robot-right" class="robot-right">RIGHT</button>
+        <button id="robot-forward" class="robot-forward">FORWARD</button>
+        <button id="robot-back" class="robot-back">BACK</button>
+        <button id="robot-stop" class="robot-stop">STOP</button>
+        <button id="robot-disconnect" class="robot-disconnect">DISCONNECT</button>
+      </div>
+      <div>
     </div>
+    <br><br><br>
     <div class="right">
       <form action="">
         <input id="m" autocomplete="off" />
@@ -40,6 +53,8 @@
       </form>
       <ul id="messages"></ul>
     </div>
+    </div>
+
   </div>
   <!-- <div class="footer">2017</div> -->
   <script src="sockets-motors.js"></script>

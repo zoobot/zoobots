@@ -1,13 +1,3 @@
-// var socket = io();
-// var url = window.location.protocol + ' ' +document.domain + ' : ' + location.port;
-// var url = window.location.protocol +document.domain + ':' + location.port;
-// const url = `http://${window.location.hostname}:${location.port}`;
-// const url = `${window.location.protocol}${window.location.hostname}:${location.port}`;
-// var url = 'http://192.168.55.102:8000'
-// console.log('url pipony2',url)
-// var socket = io.connect(url);
-// console.log('socket',socket)
-
 var socket = io();
 socket.on('room', msg => console.log('room ', msg))
 socket.on('pipony moved', msg => console.log('pipony moved ', msg))
@@ -69,9 +59,9 @@ $(".pipony6 button").click(function(e) {
   return false;
 });
 
-$(".pipony1 button").click(function(e) {
+$(".horse button").click(function(e) {
   var url = 'http://192.168.55.101:8000'
-  console.log('url pipony3',url)
+  console.log('url horse',url)
   var socket = io.connect(url);
   console.log('socket',socket)
 
@@ -96,4 +86,3 @@ $(".pipony1 button").click(function(e) {
   }
   return false;
 });
-

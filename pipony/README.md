@@ -19,6 +19,10 @@ Raspbian, Flast, Socket.io, Ngrok
 * Motion Sensor: http://www.jameco.com/
 z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 
+# Nginx
+* To restart nginx and kill all older PIDs
+* sudo kill $(ps aux | grep nginx | awk '{print $2}');sudo nginx -c /Users/username/Desktop/ROBOTS/internet_of_robots/zoobot/pipony/nginx.conf
+
 # Installing Raspbian OS using Etcher
 * Connect the SD card reader with the SD card inside. Format as FAT32.
 * Download and install Etcher
@@ -29,29 +33,49 @@ z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 * Insert SD into Raspberry Pi
 * Boot!
 * Connect to Wifi
+
+sudo raspi-config
+* change password
+* hostname
+* Interfacing Options
+* Enable Camera
 * Enable SSH
-* Install VNC - Chicken of the VNC or TightVNC
+* Enable VNC
 * ssh or vnc to Raspberry Pi
+
+
 
 ### to clone microsd on osx
 diskutil list
-diskutil unmountDisk /dev/disk2
-sudo newfs_msdos -F 16 /dev/disk2
-sudo dd if=~/Desktop/raspberrypi.dmg of=/dev/disk2
+* diskutil unmountDisk /dev/disk2
+clone to desktop
+* sudo dd if=/dev/disk2 of=~/Desktop/raspberrypi.dmg
+format
+* sudo newfs_msdos -F 16 /dev/disk2
+clone from desktop
+* sudo dd if=~/Desktop/raspberrypi.dmg of=/dev/disk2
+https://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911
+https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1261113524
 
 ### Electronics ##
 * Solder all parts
 * Connect Raspberry Pi Zero to MotoZero
 
 ### Install Dependencies
-pip install Flask
-pip install python-socketio
-pip install eventlet
-* git clone https://github.com/zoobot/Zoobot.git
+* pip install Flask
+* pip install python-socketio
+* pip install eventlet
+* git clone https://github.com/zoobot/zoobot.git
 
-### Run the Server ##
-* python server/server-pipony.py
-* Open a browser on http://localhost:3000 or use Ngrok for external access
+### Run the Flask Server ##
+* python server-pipony.py
+
+
+
+#notes for osx file limit error
+*ulimit -a
+*ulimit -n 10000
+*sudo launchctl limit maxfiles 100000 unlimited
 
 ### Slides with more depth
 *

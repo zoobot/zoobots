@@ -42,13 +42,6 @@ def message(sid):
     motor4.value = -1 # half speed backwards
     print('message ', sid)
 
-@sio.on('robot-stop')
-def message(sid):
-    # Stop the motor by 'turning off' the enable GPIO pin
-    motor1.value = 0 # stop
-    motor4.value = 0 # stop
-    print('message ', sid)
-
 @sio.on('robot-right')
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
