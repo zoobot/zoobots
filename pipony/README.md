@@ -16,8 +16,7 @@ Raspbian, Flask, Socket.io, Ngrok
 * Socket.io: http://python-socketio.readthedocs.io/en/latest/
 * Raspberry Pi: https://www.raspberrypi.org/
 * Ngrok: https://ngrok.com/
-* Motion Sensor: http://www.jameco.com/
-z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
+* Motion Sensor: http://www.jameco.com/z/555-28027-Parallax-PIR-Sensor-Rev-B-_2082927.html
 
 
 ## Installing Raspbian OS using Etcher
@@ -40,8 +39,8 @@ format
 * sudo newfs_msdos -F 16 /dev/disk2
 clone from desktop
 * sudo dd if=~/Desktop/raspberrypi.dmg of=/dev/disk2
-https://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911
-https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1261113524
+* Notes: https://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911
+* Notes: https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1261113524
 
 
 ## TODO on Raspberry Pi
