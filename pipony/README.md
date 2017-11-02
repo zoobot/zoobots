@@ -73,7 +73,16 @@ clone from desktop
 * change ip addresses in static/sockets-motors.js also make this code better
 * sudo nginx -c /Users/username/fullpath/zoobot/pipony/nginx.conf
 #### or To restart nginx and kill all older PIDs
-* sudo kill $(ps aux | grep nginx | awk '{print $2}');sudo nginx -c /Users/username/Desktop/ROBOTS/internet_of_robots/zoobot/pipony/nginx.conf
+* sudo kill $(ps aux | grep nginx | awk '{print $2}');sudo nginx -c /Users/ki/Desktop/ROBOTS/internet_of_robots/zoobot/pipony/nginx.conf
+
+osascript -e 'tell app "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e 'tell application "Terminal" to do script "echo hello" in selected tab of the front window'
+
+Vendor list for Mac addresses
+https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf;hb=HEAD
+
+Arp-scan for Raspberry Pi's. They all have b8:27:eb mac address prefixed.
+sudo arp-scan --ignoredups --localnet > test.txt;cat test.txt |grep "b8:27:eb:" | awk '{print $1}'
+sudo /usr/local/bin/arp-scan --ignoredups --localnet |grep "b8:27:eb:" | awk '{print $1}' > test.txt
 
 ## SSH to your Pi Robot
 * ssh pi@ip
