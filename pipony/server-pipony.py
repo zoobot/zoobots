@@ -14,10 +14,10 @@ motor1 = Motor(24, 27)
 motor1_enable = OutputDevice(5, initial_value=1)
 # motor2 = Motor(6, 22)
 # motor2_enable = OutputDevice(17, initial_value=1)
-# motor3 = Motor(23, 16)
-# motor3_enable = OutputDevice(12, initial_value=1)
-motor4 = Motor(13, 18)
-motor4_enable = OutputDevice(25, initial_value=1)
+motor3 = Motor(23, 16)
+motor3_enable = OutputDevice(12, initial_value=1)
+# motor4 = Motor(13, 18)
+# motor4_enable = OutputDevice(25, initial_value=1)
 
 @app.route('/<path:path>', methods=['POST', 'GET'])
 def serve_page(path):
@@ -25,7 +25,7 @@ def serve_page(path):
 
 @sio.on('connect')
 def connect(sid, data):
-    print("connected ", data, sid)
+    # print("connected ", data, sid)
     sio.emit('room', room=sid)
 
 @sio.on('robot-forward')
@@ -33,35 +33,35 @@ def message(sid):
     # Turn the motor on
     motor1.value = 1 # half speed forwards
     motor4.value = 1 # half speed forwards
-    print('message ', sid)
+    print('robot-forward ', sid)
     sio.emit('pipony moved', sid)
 
 @sio.on('robot-back')
 def message(sid):
     motor1.value = -1 # half speed backwards
     motor4.value = -1 # half speed backwards
-    print('message ', sid)
+    print('robot-back ', sid)
 
 @sio.on('robot-right')
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
     motor1.value = 1 # right
     motor4.value = 0.5 # right
-    print('message ', sid)
+    print('robot-right ', sid)
 
 @sio.on('robot-left')
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
     motor1.value = .5 # left
     motor4.value = 1 # left
-    print('message ', sid)
+    print('robot-left ', sid)
 
 @sio.on('robot-stop')
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
     motor1.value = 0 # stop
     motor4.value = 0 # stop
-    print('message ', sid)
+    print('robot-stop ', sid)
 
 
 @sio.on('disconnect')
