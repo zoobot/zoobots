@@ -16,8 +16,8 @@ motor1_enable = OutputDevice(5, initial_value=1)
 # motor2_enable = OutputDevice(17, initial_value=1)
 motor3 = Motor(23, 16)
 motor3_enable = OutputDevice(12, initial_value=1)
-# motor4 = Motor(13, 18)
-# motor4_enable = OutputDevice(25, initial_value=1)
+motor4 = Motor(13, 18)
+motor4_enable = OutputDevice(25, initial_value=1)
 
 @app.route('/<path:path>', methods=['POST', 'GET'])
 def serve_page(path):
@@ -32,6 +32,7 @@ def connect(sid, data):
 def message(sid):
     # Turn the motor on
     motor1.value = 1 # half speed forwards
+    motor3.value = 1 # half speed forwards
     motor4.value = 1 # half speed forwards
     print('robot-forward ', sid)
     sio.emit('pipony moved', sid)
@@ -39,6 +40,7 @@ def message(sid):
 @sio.on('robot-back')
 def message(sid):
     motor1.value = -1 # half speed backwards
+    motor3.value = -1 # half speed backwards
     motor4.value = -1 # half speed backwards
     print('robot-back ', sid)
 
@@ -46,6 +48,7 @@ def message(sid):
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
     motor1.value = 1 # right
+    motor3.value = 0.5 # right
     motor4.value = 0.5 # right
     print('robot-right ', sid)
 
@@ -53,6 +56,7 @@ def message(sid):
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
     motor1.value = .5 # left
+    motor3.value = 1 # left
     motor4.value = 1 # left
     print('robot-left ', sid)
 
@@ -60,6 +64,7 @@ def message(sid):
 def message(sid):
     # Stop the motor by 'turning off' the enable GPIO pin
     motor1.value = 0 # stop
+    motor3.value = 0 # stop
     motor4.value = 0 # stop
     print('robot-stop ', sid)
 
