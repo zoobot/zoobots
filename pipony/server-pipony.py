@@ -75,7 +75,7 @@ def disconnect(sid):
     print('disconnect ', sid)
 
 def main():
-    print('main')
+    print(' ')
 
 if __name__ == '__main__':
     # wrap Flask application with engineio's middleware
