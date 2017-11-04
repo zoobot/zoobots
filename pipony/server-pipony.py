@@ -68,6 +68,15 @@ def message(sid):
     motor4.value = 0 # stop
     print('robot-stop ', sid)
 
+@sio.on('robot-circle')
+def message(sid):
+    # Turn the motor on
+    motor1.value = 1 # half speed forwards
+    motor3.value = -1 # half speed forwards
+    motor4.value = -1 # half speed forwards
+    print('robot-circle ', sid)
+    sio.emit('pipony moved', sid)
+
 
 @sio.on('disconnect')
 def disconnect(sid):
