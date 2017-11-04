@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Internet of Robots</title>
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/static/style.css">
+    <!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
+    <script type="text/javascript" src="resources/js/socket.io.js"></script>
+  <script type="text/javascript" src="resources/js/jquery-1.11.1.js"></script>
+</head>
+
+<body>
+
+  <header><h1>Zoobot</h1>
+    <nav>Internet of Robots Demo Controller</nav>
+  </header>
+  <div class="container">
+    <div class="left">
+      <div id="robots" class="robots">
+      </div>
+    </div>
+    <br><br><br>
+    <div class="right">
+      <form action="">
+        <input id="m" autocomplete="off" />
+        <button>Send</button>
+      </form>
+      <ul id="messages"></ul>
+    </div>
+    </div>
+
+  </div>
+  <!-- <div class="footer">2017</div> -->
+  <script src="sockets-cleanup-class.js"></script>
+</body>
+
+</html>
