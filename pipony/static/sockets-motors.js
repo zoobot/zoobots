@@ -31,6 +31,9 @@ $(".pipony1 button").click(function(e) {
   if (e.currentTarget.className === 'robot-stop') {
     socket.emit('robot-stop');
   }
+  if (e.currentTarget.className === 'robot-circle') {
+    socket.emit('robot-circle');
+  }
   if (e.currentTarget.className === 'disconnect') {
     socket.emit('disconnect');
   }
