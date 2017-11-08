@@ -28,23 +28,25 @@ Raspbian, Socket.io, NGinx, Flask??, Johnny-five??
 * Enable VNC
 * ssh or vnc to Raspberry Pi
 
-## RUN Nginx on localhost FIRST!!
+#### RUN Nginx on localhost FIRST!!
 * git clone https://github.com/zoobot/zoobot.git
 * cd zoobot
-* change upstream ip addresses to match robots on nginx.conf line 15
-* change ip addresses to match robots on nginx.conf line 15
-* change ip addresses in static/sockets-motors.js also make this code better
-* sudo nginx -c /Users/username/fullpath/zoobot/pipony/nginx.conf
-#### or To restart nginx and kill all older PIDs
+* add upstream ip addresses to match robots in nginx.conf
+* change ip addresses in static/url-conf.js
+
+#### Start nginx
+* sudo nginx -c /Users/ki/Desktop/ROBOTS/internet_of_robots/zoobot/pipony/nginx.conf
+
+#### Restart nginx and kill all older PIDs
 * sudo kill $(ps aux | grep nginx | awk '{print $2}');sudo nginx -c /Users/ki/Desktop/ROBOTS/internet_of_robots/zoobot/pipony/nginx.conf
 
-
-Arp-scan for Raspberry Pi's. They all have b8:27:eb mac address prefixed.
-sudo /usr/local/bin/arp-scan --ignoredups --localnet |grep "b8:27:eb:" | awk '{print $1}' > test.txt;cat test.txt
+#### Arp-scan for Raspberry Pi's. Pi's have b8:27:eb mac address prefixed.
+* sudo /usr/local/bin/arp-scan --ignoredups --localnet |grep "b8:27:eb:" | awk '{print $1}' > test.txt;cat test.txt
 
 ## SSH to your Pi Robot
-* ssh pi@ip
+* ssh pi@ip's from arp-scan
 * git clone https://github.com/zoobot/zoobot.git
+* git pull to pull down updated code to the robots
 ##  install dependencies
 * sudo pip install Flask python-socketio eventlet for Flask or npm install for node
 ## Run the Flask Server or Node server depending on which robot##
