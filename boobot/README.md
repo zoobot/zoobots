@@ -19,6 +19,7 @@ Raspbian, Socket.io, NGinx, Flask??, Johnny-five??
 * MotoZero motor driver: https://thepihut.com/products/motozero
 
 ## Setup on Raspberry Pi Back End Server
+* On initial setup, use monitor and keyboard to setup pi
 * Open Terminal and type sudo raspi-config
 * change password
 * hostname
