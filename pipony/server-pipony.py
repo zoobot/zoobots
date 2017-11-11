@@ -58,7 +58,7 @@ def message(sid):
     motor1.value = .5 # left
     motor3.value = 1 # left
     motor4.value = 1 # left
-    print('robot-left ', sid)
+    print('robot-left', sid)
 
 @sio.on('robot-stop')
 def message(sid):
@@ -66,7 +66,7 @@ def message(sid):
     motor1.value = 0 # stop
     motor3.value = 0 # stop
     motor4.value = 0 # stop
-    print('robot-stop ', sid)
+    print('robot-stop', sid)
 
 @sio.on('robot-circle')
 def message(sid):
@@ -74,7 +74,7 @@ def message(sid):
     motor1.value = 1 # half speed forwards
     motor3.value = -1 # half speed forwards
     motor4.value = -1 # half speed forwards
-    print('robot-circle ', sid)
+    print('robot-circle', sid)
     sio.emit('pipony moved', sid)
 
 
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     app = socketio.Middleware(sio, app)
 
     # deploy as an eventlet WSGI server
-    eventlet.wsgi.server(eventlet.listen(('', 8000)), app)
+    eventlet.wsgi.server(eventlet.listen(('', 8001)), app)
     try:
         main()
     except KeyboardInterrupt:
