@@ -11,14 +11,14 @@ Horse has a working setup for Arduino, Raspberry Pi 3, and Johnny-Five , run thi
 ### Pipony
 Pipony has a working setup for Raspberry Pi Zero W, MotoZero, Flask. It also has the working front end code and Nginx config for load balancing /running more than one robot at a time.
 
-## TODO - near future
+## Todo - near future
 * login
 * terrain mapping using pi cam
 * redis for subpub
 * mongo for accounts
 
 
-### Talks
-Hackaday Super Conference 2017 Los Angeles
-Hardware Developer's Didactic Galactic Meetup 2017 San Francisco
-Women Who Code Conference 2017 San Francisco
+## Talks
+##### Hackaday Super Conference 2017 Los Angeles
+##### Hardware Developer's Didactic Galactic Meetup 2017 San Francisco
+##### Women Who Code Conference 2017 San Francisco
