@@ -7,7 +7,7 @@ The end goal of this project is a social network for robots. Ideally they will b
 ### Boobot
 Boobot is a Node/Express server setup with Johnny-five testing. It is not completely working with Raspberry Pi Zero / MotoZero / Raspi-io library
 ### Horse
-Horse has a working setup for Arduino, Raspberry Pi 3, and Johnny-Five , run this to get more than one robot communicating with loadbalancing
+Horse has a working setup for Arduino, Raspberry Pi 3, and Johnny-Five
 ### Pipony
 Pipony has a working setup for Raspberry Pi Zero W, MotoZero, Flask. It also has the working front end code and Nginx config for load balancing /running more than one robot at a time.
 
