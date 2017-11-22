@@ -9,3 +9,10 @@ npm-debug.log
 # Docker
 Dockerfile
 docker-compose.yml
+
+
+horse/robot-wwcode-images
+*.png
+*.gif
+*.jpg
+*.mov
