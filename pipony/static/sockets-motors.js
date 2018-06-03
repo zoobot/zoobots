@@ -2,9 +2,9 @@ var socket = io();
 // socket.on('room', msg => console.log('room ', msg))
 socket.on('pipony moved', msg => console.log('pipony moved ', msg))
 var urls = [
-  'http://192.168.55.102:8000',
-  'http://192.168.55.103:8000',
-  'http://192.168.55.104:8000',
+  'http://192.168.55.117:8000',
+  'http://192.168.55.120:8000',
+  'http://192.168.55.121:8000',
   'http://192.168.55.108:8000',
 ]
 
