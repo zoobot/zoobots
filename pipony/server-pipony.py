@@ -19,9 +19,16 @@ motor3_enable = OutputDevice(12, initial_value=1)
 motor4 = Motor(13, 18)
 motor4_enable = OutputDevice(25, initial_value=1)
 
+
 # @app.route('/<path:path>', methods=['POST', 'GET'])
 # def serve_page(path):
 #   return send_from_directory('static', path)
+
+
+@app.route('/<path:path>', methods=['POST', 'GET'])
+def serve_page(path):
+  return send_from_directory('static', path)
+
 def circle():
     # Turn the motor on
     motor1.value = 1 # half speed forwards
@@ -99,7 +106,7 @@ if __name__ == '__main__':
     app = socketio.Middleware(sio, app)
 
     # deploy as an eventlet WSGI server
-    eventlet.wsgi.server(eventlet.listen(('', 8001)), app)
+    eventlet.wsgi.server(eventlet.listen(('', 8000)), app)
     try:
         main()
     except KeyboardInterrupt:
