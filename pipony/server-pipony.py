@@ -22,6 +22,14 @@ motor4_enable = OutputDevice(25, initial_value=1)
 # @app.route('/<path:path>', methods=['POST', 'GET'])
 # def serve_page(path):
 #   return send_from_directory('static', path)
+def circle():
+    # Turn the motor on
+    motor1.value = 1 # half speed forwards
+    motor3.value = -1 # half speed forwards
+    motor4.value = -1 # half speed forwards
+    # print('robot-circle', sid)
+    # sio.emit('pipony moved', sid)
+circle();
 
 @sio.on('connect')
 def connect(sid, data):
