@@ -43,10 +43,8 @@ Robot.prototype.make = function(urls) {
 
 let robots
 let urls =  {
-  'pipony1':'http://192.168.55.102:8000',
-  'pipony2':'http://192.168.55.103:8000',
-  'pipony3':'http://192.168.55.104:8000',
-  'pipony6':'http://192.168.55.108:8000',
+  'pipony1':'http://192.168.55.117:8001',
+  'pipony2':'http://192.168.55.120:8001'
   }
 
 let init = function () {

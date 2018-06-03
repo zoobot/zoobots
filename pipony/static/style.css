@@ -48,6 +48,12 @@
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
+    cursor: pointer;
+}
+
+   button:hover {
+    background-color:green;
+    cursor: pointer;
 }
 
 .led button  {
