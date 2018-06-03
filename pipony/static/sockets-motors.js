@@ -4,7 +4,7 @@ socket.on('pipony moved', msg => console.log('pipony moved ', msg))
 var urls = [
   'http://192.168.55.117:8001',
   'http://192.168.55.120:8001',
-
+  'http://192.168.55.121:8001',
 ]
 
 $(".pipony1 button").click(function(e) {
