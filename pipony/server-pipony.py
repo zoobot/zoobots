@@ -19,9 +19,9 @@ motor3_enable = OutputDevice(12, initial_value=1)
 motor4 = Motor(13, 18)
 motor4_enable = OutputDevice(25, initial_value=1)
 
-# @app.route('/<path:path>', methods=['POST', 'GET'])
-# def serve_page(path):
-#   return send_from_directory('static', path)
+@app.route('/<path:path>', methods=['POST', 'GET'])
+def serve_page(path):
+  return send_from_directory('static', path)
 
 @sio.on('connect')
 def connect(sid, data):
